@@ -1,2 +1,4 @@
 This project builds on the sequence aligment repository, the global alignment was used as a multiple sequence alignment (Not recommended,because the algorithm is 
-O(n)
+O(n). Recommend substituting it with biopython's MSA package). The differences between sequences was then taken after the alignment and used to calculate the P-distance. 
+The p-distance was used to in nucleotide substiution model, which is Juke and cantor model (Continuous-time Markov chains)[Link](https://en.wikipedia.org/wiki/Models_of_DNA_evolution). This is used to get a probabilistic change of the nucleotide over evolutionary time.
+The output of the substitution matrix was used to build the phylogenetic tree. This was done by formating the species in the newick format and and then using ete3 toolkit [Ete3](https://academic.oup.com/mbe/article/33/6/1635/2579822).
