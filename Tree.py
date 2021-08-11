@@ -47,8 +47,6 @@ with open('msa.fasta','r') as file:# extracts sequences and saves them in a dict
         fasta={k: ''.join(v) for k, v in x.items()}
     
     
-# print(fasta
-# 
 
 
 match_score=1
@@ -59,10 +57,9 @@ gap=-2
 def np_global_alignment(x,y): #global alignment acting as a MSA 
 
 
-    n_matrix=np.zeros((len(x)+1,len(y)+1)) # add +1 here 
+    n_matrix=np.zeros((len(x)+1,len(y)+1)) 
     main_matrix= np.zeros((len(x)+1,len(y)+1))
     trace_back=np.zeros((len(x)+1,len(y)+1),dtype=str)
-    # trace_back[0][0]=(0,0)
 
     for i in range(len(x)): # match mismatch matrix 
         for j in range(len(y)):
@@ -156,7 +153,6 @@ def juke_and_cantor_model(): # nucleotide subsitiution model- formula
             if key not in model_dict:
                 pvalue=float(''.join(str(i)for i in value ))
                 jcvalue=-3/4*math.log(1-4/3*pvalue) 
-                # model_dict[key]=[]
 
                 if jcvalue not in model_dict.values():
                    
@@ -252,7 +248,7 @@ def final_newick_format(): # finalizes the newick format
     final_tree='(' + newy + ');'
     # final_tree=
     t= Tree(final_tree,format=9)
-    t.render('phylogenetic_Tree.png')
+    t.render('phylogenetic_Tree.png',w=183,units="mm")
 
     print(t)
     
